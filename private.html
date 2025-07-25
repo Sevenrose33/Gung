@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faidurrahman</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }body {
+  background: url('https://i.ibb.co/Df5JSzdX/569ae05e044fc64d8eade71a7b3c0cf5.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  overflow-x: hidden;
+}
+
+.overlay {
+  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.5);
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  animation: fadeInDown 1s ease-out;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1rem auto 2rem;
+  animation: fadeIn 1.5s ease-in;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid white;
+  border-radius: 25px;
+  transition: 0.3s ease;
+}
+
+nav a:hover {
+  background-color: white;
+  color: black;
+}
+
+section {
+  max-width: 800px;
+  margin: 1rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  animation: fadeInUp 1s ease-in-out;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+section h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+section ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+
+canvas {
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+
+footer {
+  text-align: center;
+  margin-top: auto;
+  padding: 1.5rem 1rem 0;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <header>
+      <h1>Faidurrahman</h1>
+      <p>Selamat datang di halaman web pribadi saya</p>
+    </header><nav>
+  <a href="#tentang">Tentang</a>
+  <a href="#portofolio">Portofolio</a>
+  <a href="#analisis">Analisis</a>
+  <a href="#kontak">Kontak</a>
+</nav>
+
+<section id="tentang">
+  <h2>Tentang Saya</h2>
+  <p>Saya adalah seorang pengembang web yang berdedikasi dan berpengalaman dalam menciptakan antarmuka yang profesional, interaktif, dan responsif.</p>
+</section>
+
+<section id="portofolio">
+  <h2>Portofolio</h2>
+  <p>Beberapa proyek yang telah saya kerjakan:</p>
+  <ul>
+    <li>Website Toko Online</li>
+    <li>Platform E-Learning</li>
+    <li>Landing Page Startup</li>
+  </ul>
+</section>
+
+<section id="analisis">
+  <h2>Analisis Data</h2>
+  <canvas id="chartData" width="700" height="300"></canvas>
+</section>
+
+<section id="kontak">
+  <h2>Kontak</h2>
+  <p>Hubungi saya melalui email: <a href="mailto:faidurrahman@example.com" style="color: #ddd; text-decoration: underline;">faidurrahman@example.com</a> atau media sosial saya.</p>
+</section>
+
+<footer>
+  &copy; 2025 Faidurrahman. All rights reserved.
+</footer>
+
+  </div>  <script>
+    const ctx = document.getElementById('chartData').getContext('2d');
+    const data = {
+      labels: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'],
+      datasets: [{
+        label: 'Aktivitas Pengunjung',
+        data: [12, 19, 10, 18, 24, 16, 20],
+        borderColor: 'rgba(255, 255, 255, 0.8)',
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        tension: 0.4,
+        fill: true
+      }]
+    };
+
+    const config = {
+      type: 'line',
+      data,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white'
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: 'white' },
+            grid: { color: 'rgba(255,255,255,0.2)' }
+          },
+          y: {
+            ticks: { color: 'white' },
+            grid: { color: 'rgba(255,255,255,0.2)' }
+          }
+        },
+        animation: {
+          duration: 2000,
+          loop: true
+        }
+      }
+    };
+
+    const myChart = new Chart(ctx, config);
+
+    setInterval(() => {
+      myChart.data.datasets[0].data = myChart.data.datasets[0].data.map(() => Math.floor(Math.random() * 30));
+      myChart.update();
+    }, 3000);
+  </script></body>
+</html>
